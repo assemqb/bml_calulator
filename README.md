@@ -16,8 +16,8 @@ A simple RESTful API built with FastAPI to calculate BMI (Body Mass Index) and c
 
 1. Clone the repository:
     ```bash
-    git clone <repository-url>
-    cd <repository-folder>
+    git clone https://github.com/assemqb/bml_calulator
+    cd bml_calulator
     ```
 
 2. Create a virtual environment:
