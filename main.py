@@ -3,25 +3,25 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# Input model for the request body
+#model for the request body
 class BMIInput(BaseModel):
-    height: float  # Height in meters
-    weight: float  # Weight in kilograms
+    height: float  #height (meter)
+    weight: float  #weight (kilogram)
 
 @app.post("/calculate_bmi")
 def calculate_bmi(data: BMIInput):
-    # Validate input
+    #Validate input
     if data.height <= 0 or data.weight <= 0:
         raise HTTPException(
             status_code=400, 
             detail="Height and weight must be positive numbers."
         )
     
-    # Calculate BMI
+    #calculate BMI
     bmi = data.weight / (data.height ** 2)
     bmi = round(bmi, 2)
 
-    # Classify BMI
+    #Classify
     if bmi < 18.5:
         classification = "Underweight"
     elif 18.5 <= bmi <= 24.9:
